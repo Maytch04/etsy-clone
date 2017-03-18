@@ -18,15 +18,3 @@ for (var i = 0; i < 25; i++) {
 }
 $('.images').html(htmlStr)
 
-// function putInDom(data) {
-// 	var myData = data.results.map(function(item) {
-// 		return {
-// 			price: item.price,
-// 			img: item.Images[0].url_570xN,
-// 		}
-// 	})
-// }
-
-// console.log(putInDom(), 'putInDom')
-
-// console.log(array, 'array')
