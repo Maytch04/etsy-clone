@@ -14,7 +14,7 @@ for (var i = 0; i < 25; i++) {
 						<li>Title</li>
 						<li>Price</li>
 					</ul>
-				</div>`
+				</div>\n`
 }
 $('.images').html(htmlStr)
 
