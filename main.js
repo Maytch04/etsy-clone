@@ -1,20 +1,36 @@
 
-// 	$.getJSON('https://api.etsy.com/v2/listings/active.js?api_key=h9oq2yf3twf4ziejn10b717i&keywords=whiskey&includes=Images,Shop&callback=?', function(data){
-// console.log(data)
+$(document).ready(function(){
+	$.getJSON('https://api.etsy.com/v2/listings/active.js?api_key=h9oq2yf3twf4ziejn10b717i&keywords=whiskey&includes=Images,Shop&callback=?', function(data){
+		
+		var data = data.results
+		// ${data[0].Images[0].url_570xN	 
 
-// })
-
-
-var htmlStr = ""
-for (var i = 0; i < 25; i++) {
-   htmlStr += `<div class="productImage" id="pImage">
+	function addImageContainer(){
+	var htmlStr = ""
+	for (var i = 0; i < data.length; i++) {
+	htmlStr += `<div class="productImage" style="background-image:url('${data[i].Images[0].url_570xN}'); background-size: 260px 266px;
+    background-position-y: -14px; background-repeat: no-repeat;">
 				<div class="productInfo">
 					<ul>
-						<li>Description</li>
-						<li>Title</li>
-						<li>Price</li>
+						 <li>${data[i].description}</li>
+						<li>${data[i].Shop.shop_name}</li>
+						<li>$${data[i].price}</li>
 					</ul>
-				</div>\n`
-}
-$('.images').html(htmlStr)
+				</div>
+			</div>`
+		}
+	$('.images').html(htmlStr)
+	}
+addImageContainer()
+
+		})
+	})
+
+	
+	
+
+
+
+
+	
 
